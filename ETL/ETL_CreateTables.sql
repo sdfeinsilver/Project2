@@ -1,56 +1,65 @@
--- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Link to schema: https://app.quickdatabasediagrams.com/#/d/0SasJQ
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/IPuwB1
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
--- logical
-DROP TABLE IF EXISTS draft, combine;
-DROP TABLE IF EXISTS player;
 
-CREATE TABLE player (
-    id serial,
-    player varchar NOT NULL,
-    CONSTRAINT pk_player PRIMARY KEY (
-        id
+CREATE TABLE "player" (
+    "player_id" SERIAL   NOT NULL,
+    "name" VARCHAR   NOT NULL,
+    CONSTRAINT "pk_player" PRIMARY KEY (
+        "player_id"
      )
 );
 
-CREATE TABLE school (
-	player_id integer foreign Key NOT NULL,
-	school varchar,
-	latitud float,
-	longitud float,
+CREATE TABLE "info" (
+    "player_id" INT   NOT NULL,
+    "position" VARCHAR   NOT NULL,
+    "height" FLOAT   NOT NULL,
+    "weight" FLOAT   NOT NULL,
+    "year" INT   NOT NULL
 );
 
-CREATE TABLE teams (
-	player_id integer foreign key NOT NULL,
-	"NFL Team" varchar,
+CREATE TABLE "college" (
+    "player_id" INT   NOT NULL,
+    "school" VARCHAR   NOT NULL,
+    "latitud" FLOAT   NOT NULL,
+    "longitud" FLOAT   NOT NULL
 );
 
-CREATE TABLE combine (
-    player_id integer foreign key NOT NULL,
-    "Ht" float,
-    "Wt" float,
-    "40yd" float,
-    "Vertical" Float,
-    "Bench" float,
-    "Broad Jump" float,
-    "3Cone" float,
-    "Shuttle" float,
-    year integer
+CREATE TABLE "teams" (
+    "player_id" INT   NOT NULL,
+    "nfl_team" VARCHAR   NOT NULL
 );
 
-
-CREATE TABLE draft (
-    player_id integer  foreign key NOT NULL,
-    Rnd integer,
-    Pick_no float,
-    Conf varchar,
-    year integer
+CREATE TABLE "combine" (
+    "player_id" INT   NOT NULL,
+    "40yd" FLOAT   NOT NULL,
+    "Vertical" FLOAT   NOT NULL,
+    "Bench" FLOAT   NOT NULL,
+    "Broad Jump" FLOAT   NOT NULL,
+    "3Cone" FLOAT   NOT NULL,
+    "Shuttle" FLOAT   NOT NULL
 );
 
-ALTER TABLE combine ADD CONSTRAINT fk_combine_player_id FOREIGN KEY(player_id)
-REFERENCES player (id);
+CREATE TABLE "draft" (
+    "player_id" INT   NOT NULL,
+    "Round" INT   NOT NULL,
+    "Pick_no" INT   NOT NULL,
+    "Conference" INT   NOT NULL
+);
 
-ALTER TABLE draft ADD CONSTRAINT fk_draft_player_id FOREIGN KEY(player_id)
-REFERENCES player (id);
+ALTER TABLE "info" ADD CONSTRAINT "fk_info_player_id" FOREIGN KEY("player_id")
+REFERENCES "player" ("player_id");
+
+ALTER TABLE "college" ADD CONSTRAINT "fk_college_player_id" FOREIGN KEY("player_id")
+REFERENCES "player" ("player_id");
+
+ALTER TABLE "teams" ADD CONSTRAINT "fk_teams_player_id" FOREIGN KEY("player_id")
+REFERENCES "player" ("player_id");
+
+ALTER TABLE "combine" ADD CONSTRAINT "fk_combine_player_id" FOREIGN KEY("player_id")
+REFERENCES "player" ("player_id");
+
+ALTER TABLE "draft" ADD CONSTRAINT "fk_draft_player_id" FOREIGN KEY("player_id")
+REFERENCES "player" ("player_id");
 
