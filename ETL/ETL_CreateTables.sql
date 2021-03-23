@@ -1,7 +1,10 @@
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/IPuwB1
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 DROP TABLE IF EXISTS info, college, teams, combine, draft;
 Drop Table If Exists player;
 
@@ -18,17 +21,31 @@ CREATE TABLE "info" (
     "position" VARCHAR,
     "Height" FLOAT,
     "Weight" FLOAT,
+<<<<<<< HEAD
     "Year" INT   NOT NULL
+=======
+    "year" INT   NOT NULL
+>>>>>>> main
 );
 
 CREATE TABLE "college" (
     "player_id" INT   NOT NULL,
+<<<<<<< HEAD
     "School" VARCHAR,
 	"Conf" VARCHAR);
 
 CREATE TABLE "teams" (
     "player_id" INT   NOT NULL,
     "NFL_Team" VARCHAR
+=======
+    "school" VARCHAR,
+	"conference" VARCHAR);
+
+CREATE TABLE "teams" (
+    "player_id" INT   NOT NULL,
+    "nfl_team" VARCHAR,
+	"Conference" VARCHAR
+>>>>>>> main
 );
 
 CREATE TABLE "combine" (
@@ -44,7 +61,11 @@ CREATE TABLE "combine" (
 CREATE TABLE "draft" (
     "player_id" INT   NOT NULL,
     "Round" INT,
+<<<<<<< HEAD
     "Pick_No" INT);
+=======
+    "Pick_no" INT);
+>>>>>>> main
 
 ALTER TABLE "info" ADD CONSTRAINT "fk_info_player_id" FOREIGN KEY("player_id")
 REFERENCES "player" ("player_id");
