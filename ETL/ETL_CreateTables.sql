@@ -1,9 +1,6 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/IPuwB1
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-DROP TABLE IF EXISTS info, college, draft, combine, teams;
-DROP TABLE IF EXISTS player;
-
 
 
 CREATE TABLE "player" (
@@ -17,31 +14,32 @@ CREATE TABLE "player" (
 CREATE TABLE "info" (
     "player_id" INT   NOT NULL,
     "position" VARCHAR   NOT NULL,
-    "height" FLOAT   NOT NULL,
-    "weight" FLOAT   NOT NULL,
+    "height" FLOAT,
+    "weight" FLOAT,
     "year" INT   NOT NULL
 );
 
 CREATE TABLE "college" (
-    "player_id" INT   Not Null,
-    "school" VARCHAR   NOT NULL,
-    "latitud" FLOAT   NOT NULL,
-    "longitud" FLOAT   NOT NULL
+    "player_id" INT   NOT NULL,
+    "school" VARCHAR,
+	"conference" VARCHAR,
+--     "latitud" FLOAT   NOT NULL,
+--     "longitud" FLOAT   NOT NULL
 );
 
 CREATE TABLE "teams" (
     "player_id" INT   NOT NULL,
-    "nfl_team" VARCHAR
+    "nfl_team" VARCHAR   NOT NULL
 );
 
 CREATE TABLE "combine" (
     "player_id" INT   NOT NULL,
-    "Forty_Yard" FLOAT,
-    "Vertical" FLOAT,
-    "Bench" FLOAT,
-    "Broad Jump" FLOAT,
-    "Three_Cone" FLOAT,
-    "Shuttle" FLOAT
+    "40yd" FLOAT   NOT NULL,
+    "Vertical" FLOAT   NOT NULL,
+    "Bench" FLOAT   NOT NULL,
+    "Broad Jump" FLOAT   NOT NULL,
+    "3Cone" FLOAT   NOT NULL,
+    "Shuttle" FLOAT   NOT NULL
 );
 
 CREATE TABLE "draft" (
