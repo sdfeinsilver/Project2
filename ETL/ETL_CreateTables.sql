@@ -14,16 +14,17 @@ CREATE TABLE "player" (
 CREATE TABLE "info" (
     "player_id" INT   NOT NULL,
     "position" VARCHAR   NOT NULL,
-    "height" FLOAT   NOT NULL,
-    "weight" FLOAT   NOT NULL,
+    "height" FLOAT,
+    "weight" FLOAT,
     "year" INT   NOT NULL
 );
 
 CREATE TABLE "college" (
     "player_id" INT   NOT NULL,
-    "school" VARCHAR   NOT NULL,
-    "latitud" FLOAT   NOT NULL,
-    "longitud" FLOAT   NOT NULL
+    "school" VARCHAR,
+	"conference" VARCHAR,
+--     "latitud" FLOAT   NOT NULL,
+--     "longitud" FLOAT   NOT NULL
 );
 
 CREATE TABLE "teams" (
