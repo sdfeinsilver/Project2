@@ -1,0 +1,6 @@
+sqlalchemy
+psycopg2
+numpy
+pandas
+flask
+gunicorn
