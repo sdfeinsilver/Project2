@@ -3,25 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NFL Dashboard</title>
+    <title>Player Position</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
     <!--Navbar adjustments-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand text-white" href="index.html" >NFL Dashboard</a>
+        <div class="container content">
+            <a class="navbar-brand text-white" href="index.html">NFL Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+                
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">    
                     <li class="nav-item dropdown">
@@ -36,53 +35,42 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> 
     </nav>
-    
-    <!--create container, rows and columns and add images -->
-    <div class="container content">    
+    <!--Player Position-->
+    <div class="container content">
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h3>NFL Dashboard </h3>
+                    <h3>Player Position</h3>
                     <hr>
-                    <div class="thumbnail">
-                        <img class="img-thumbnail float-center" src="../static/images/NFL.png " width="30%">
-                    </div>
-                    <p> Have you ever wondered how the combine statistics influence the draft and how many players are drafted by position?  This application will allow you to view these statistics and understand how many players are drafted per year. </p> 
-                    
-                    <p> What do those 6 combine events mean? </p>
-                    <p> The Forty Yard Dash - the 40 yeard dash is is a test of speed to see how fast the player can run.  The record was set in 2017 by WR John Ross at 4.22 seconds. </p>
-                    <p> Vertical - the vertical is the verical jump.  There are a series of flags set at various heights. The player must jump to see how high they can go.  Record set in 2005 by DB Gerald Sensabaugh 46".</p>
-                    <p> Bench Reps - players bench press a 225-pound barbell as many times as possible.  The record is 51 reps by DT Justin Ernest in 1999.</p>
-                    <p> 3Cone - the 3Cone drill evaluates the agility, quickness and fluidity of movement by the player. It is 30 yards total.</p>
-                    <p> Broad Jump - players jump as far as they can while landing in a balanced position.  Record was set in 2015 by CB Byron Jones at 12'3". </p>
-                    <p> Shuttle - the shuttle is a 20 yard run which has the player running back and forth between 2 lines, touching the lines.  This tests lateral speed and agility.  Record set in 2001 by WR Kevin Kasper at 3.73 seconds.</p>
+                    <img src="../static/images/NFLDraft2021.png" width="100%" alt="Player Position">
+                    <br>
+                    <p>Holder for the player position chart</p>
                 </div>
             </div>
-            <!--visualization adjustments-->
+            <!--visualizations container edits-->
             <div class="col-md-4">
                 <div class="col-md-12">
                     <h3>Data Charts</h3>
                     <hr>
                     <div class="row">
                         <div class="col-3 col-md-6">
-                            <a href="PlayerPosition1.html"><img src="../static/images/NFLDraft2021.png" width="100%"  alt="player position">
-                            </a> 
+                            <a href="PlayerPosition1.html"><img src="../static/images/NFLDraft2021.png" width="100%" alt="Player Position"></a>
                         </div>
+                        
                         <div class="col-3 col-md-6">
                             <a href="PlayerPosition2.html"><img src="../static/images/player1.png" width="100%" alt="Player Position by Year"></a>
                         </div>
-        
+                    
                         <div class="col-3 col-md-6">
-                            <a href="CombineEvents.html"><img src="../static/images/NFLCombine.png" width="100%"  alt="Combine Events"></a>
+                            <a href="CombineEvents.html"><img class="pic" src="../static/images/NFLCombine.png" width="100%" alt="Combine Events"></a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>            
+        </div>    
     </div>
-    
     <!-- Footer -->
     <footer class="page-footer font-small footer-dark">
         <div class="footer-copyright text-center py-3">
