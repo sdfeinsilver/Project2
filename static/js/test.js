@@ -1,3 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // API calls with d3:
 
 // So we actually do need to use flask to deploy the html, because browsers don't let you bring in data from a foreign source. This means that the data must come from the same place as the html itself (ie, the heroku server).
@@ -16,15 +38,15 @@
 
 // Aggregate data by position:
 // Format - /position/<desired-position>/stat1&stat2&stat3...
-d3.json('/stats/TE/2016/height&weight').then(function(data) {
-	console.log('Height and Weight statistics of tight ends:');
-	console.log(data)
-})
+// d3.json('/stats/TE/2016/height&weight').then(function(data) {
+// 	console.log('Height and Weight statistics of tight ends:');
+// 	console.log(data)
+// })
 
-// Player-specific data:
-// Format - /id/<player-name>
+// // Player-specific data:
+// // Format - /id/<player-name>
 
-d3.json('/id/Mehdi Abdesmad').then(function(data) {
-	console.log('Mehdi Abdesmad statistics:');
-	console.log(data)
-})
+// d3.json('/id/Mehdi Abdesmad').then(function(data) {
+// 	console.log('Mehdi Abdesmad statistics:');
+// 	console.log(data)
+// })
