@@ -156,6 +156,21 @@ def byYear(pos, year, stats):
 
     return jsonify(output)
 
+#routes to seconday htmls 
+#Player position
+
+@app.route('/frequency')
+def position():
+    return render_template('PlayerPosition1.html')
+
+@app.route('/trend')
+def position_trend():
+    return render_template('PlayerPosition2.html')
+
+@app.route('/combine')
+def combine():
+    return render_template('CombineEvents.html')
+
 # Homepage
 @app.route('/')
 def home():
