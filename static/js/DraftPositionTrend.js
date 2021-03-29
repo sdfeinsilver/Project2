@@ -4,35 +4,28 @@ console.log(data);
 
 });
 
-bar_data = [{
-    type: 'bar',
-    x: [1,2],
-    y: ["position1",'position2'],
+line_data = [{
+    type: 'line',
+    x: [2016,2017,2018,2019,2020],
+    y: [22, 45, 32, 34, 23],
     text: "test",
     orientation: 'h'
 }];
 
-bar_layout = {      
-    title: "bar chart",
+line_layout = {      
+    title: "Draft Position Trend",
     yaxis: {
             tickmode: "linear"}, 
 
 };
-var years = [2016,2017,2018,2019,2020]
-years.forEach(year => {
+var positions = ["C","OG","OT","QB","RB","WR","TE"]
+positions.forEach(position => {
     var dropdown1 = d3.select("#selDataset1");
-    dropdown1.append("option").text(year)
-});
-
-var rounds = [1,2,3,4,5,6,7]
-rounds.forEach(round => {
-    var dropdown2 = d3.select("#selDataset2");
-    dropdown2.append("option").text(round)
+    dropdown1.append("option").text(position)
 });
 
 
-
-Plotly.newPlot("bar", bar_data, bar_layout);
+Plotly.newPlot("line", line_data, line_layout);
 
 // var dropdown1.on("change", function() {
 //     var selected_data = years.filter(x => x == this.value);
