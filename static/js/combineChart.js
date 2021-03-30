@@ -23,10 +23,11 @@ function genChart(stat, year, Event) {
             orientation: 'v'
         }];
         let bar_layout = {
-            title: `${Event} ${stat} for the year ${year}<br> in the Combine Scouting`,
+            title: `${Event} ${stat} for the year ${year} in the Combine Scouting`,
             yaxis: {
                 tickmode: "linear"
             },
+            
 
         };
         Plotly.newPlot("bar", bar_data, bar_layout);

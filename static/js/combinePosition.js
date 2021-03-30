@@ -53,7 +53,8 @@ function buildChart(year, position) {
             var series = chart.area(data);
         
             // set the chart title
-            chart.title("Radar Area Chart");
+            chart.title(`Position: ${position}
+                Combine Events mark for the year ${year}`);
         
             // set the container id
             chart.container("chart");
