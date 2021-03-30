@@ -42,11 +42,7 @@ d3.select('#selDataset1').on("change", function() {
     buildChart(year);
 })
 
-var years = [2016,2017,2018,2019,2020]
-years.forEach(year => {
-    var dropdown1 = d3.select("#selDataset1");
-    dropdown1.append("option").text(year)
-});
+
 
 
 // Create function to build chart
@@ -68,7 +64,11 @@ years.forEach(year => {
 //             tickmode: "linear"}, 
 
 // };
-
+var years = [2016,2017,2018,2019,2020]
+years.forEach(year => {
+    var dropdown1 = d3.select("#selDataset1");
+    dropdown1.append("option").text(year)
+});
 
 // var rounds = [1,2,3,4,5,6,7]
 // rounds.forEach(round => {
