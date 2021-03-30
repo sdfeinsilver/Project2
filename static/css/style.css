@@ -103,6 +103,11 @@ tr>td:nth-child(10) {
     text-align: right;
 }
 
+#bar{
+    margin-right: 50px;
+    height: 400px;
+    width: 675px;
+}
 
 /* small screen adjustments*/
 @media(max-width:767px){
@@ -117,3 +122,4 @@ tr>td:nth-child(10) {
         padding:inherit;
     }
 }
+
