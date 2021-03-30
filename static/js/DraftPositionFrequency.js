@@ -1,9 +1,13 @@
 
 // Check that you can read in data
-d3.json('/byYear/').then(function(data) {
-    console.log(data);
-});
+// d3.json('/byYear/').then(function(data) {
+//     console.log(data);
+// });
+
+// Create function to build chart
 function buildChart(year) {
+    barHTML = d3.select("#bar")
+    barHTML.html("")
     d3.json('/byYear/').then(function(obj) {
         // instantiate x and y value containers
         let x = [];
@@ -23,11 +27,11 @@ function buildChart(year) {
             type: 'bar',
             x: x,
             y: y,
-            text: "test",
+            text: `Players drafted`, // Access the position
             orientation: 'v'
         }];
         let bar_layout = {      
-            title: "bar chart",
+            title: `Players drafted by position for the year ${year}`,
             yaxis: {
                     tickmode: "linear"}, 
         
@@ -42,40 +46,15 @@ d3.select('#selDataset1').on("change", function() {
     buildChart(year);
 })
 
+buildChart(2016)
 
 
 
-// Create function to build chart
-// d3.json('byYear').then(function(data) {
-// })
-
-
-// bar_data = [{
-//     type: 'bar',
-//     x: [1,2],
-//     y: ["position1",'position2'],
-//     text: "test",
-//     orientation: 'h'
-// }];
-
-// bar_layout = {      
-//     title: "bar chart",
-//     yaxis: {
-//             tickmode: "linear"}, 
-
-// };
 var years = [2016,2017,2018,2019,2020]
 years.forEach(year => {
     var dropdown1 = d3.select("#selDataset1");
     dropdown1.append("option").text(year)
 });
-
-// var rounds = [1,2,3,4,5,6,7]
-// rounds.forEach(round => {
-//     var dropdown2 = d3.select("#selDataset2");
-//     dropdown2.append("option").text(round)
-// });
-
 
 
 // // Plotly.newPlot("bar", bar_data, bar_layout);

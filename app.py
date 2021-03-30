@@ -161,6 +161,10 @@ def position_trend():
 def combine():
     return render_template('CombineEvents.html')
 
+@app.route('/combinePosition')
+def combinePosition():
+    return render_template('CombinePosition.html')
+
 # Homepage
 @app.route('/')
 def home():

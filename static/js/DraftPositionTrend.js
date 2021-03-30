@@ -1,10 +1,10 @@
-d3.json("https://nfl-flask.herokuapp.com/id/Mehdi%20Abdesmad").then(function(data) {
-console.log(data);
-
-
-});
+// d3.json("https://nfl-flask.herokuapp.com/id/Mehdi%20Abdesmad").then(function(data) {
+// console.log(data),
+// });
 
 function genChart(position) {
+    barHTML = d3.select("#line")
+    barHTML.html("")
     d3.json('/byYear/').then(function(data) {
         let years = [2016, 2017, 2018, 2019, 2020];
         let y = []
@@ -19,7 +19,7 @@ function genChart(position) {
             y.push(total)
         })
         let line_layout = {      
-            title: "Draft Position Trend",
+            title: `Draft Position Trend ${position}`,
             yaxis: {
                     tickmode: "linear"}, 
         
@@ -28,26 +28,14 @@ function genChart(position) {
             type: 'line',
             x: years,
             y: y,
-            text: "test",
+            text: `Number of ${position} drafted`, // Access the year
             orientation: 'h'
         }];
 
         Plotly.newPlot("line", line_data, line_layout);
     })
 }
-// line_data = [{
-//     type: 'line',
-//     x: [2016,2017,2018,2019,2020],
-//     y: [22, 45, 32, 34, 23],
-//     text: "test",
-//     orientation: 'h'
-// }];
-
-// line_layout = {      
-//     title: "Draft Position Trend",
-//     yaxis: {
-//             tickmode: "linear"}, 
-// };
+genChart("TE")
 
 var positions = ["TE", "K", "CB", "OT", "QB", "WR", "S", "DT", "DE", "C", "OLB", "RB", "ILB", "P", "OG", "FB", "LS", "EDGE", "LB", "OL", "DL"]
 positions.forEach(position => {
@@ -61,7 +49,6 @@ d3.select('#selDataset1').on("change", function() {
 });
 
 
-// Plotly.newPlot("line", line_data, line_layout);
 
 // var dropdown1.on("change", function() {
 //     var selected_data = years.filter(x => x == this.value);
