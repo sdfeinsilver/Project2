@@ -30,65 +30,8 @@ Teams = Base.classes.teams
 # Flask routes
 app = Flask(__name__)
 
-# Basic player info
-@app.route('/id/<player>')
-def playerName(player):
-    sesh = Session()
-    # Get player id
-    playerID = sesh.query(Players.player_id)\
-               .filter(Players.name == player)\
-               .one()[0]
-    # General info
-    pos, height, year, weight = sesh.query(Info.position,
-                                    Info.Height,
-                                    Info.Year,
-                                    Info.Weight)\
-                          .filter(Info.player_id == playerID)\
-                          .one()
-    
-    # School info
-    try:    
-        school = sesh.query(College.School)\
-                    .filter(College.player_id == playerID)\
-                .one()[0]
-    except:
-        school = None
-
-    # Draft info
-    try:
-        Round, pick_no = sesh.query(Draft.Round,
-                                Draft.Pick_No)\
-                    .filter(Draft.player_id == playerID)\
-                    .one()
-    except:
-        Round, pick_no = None, None
-
-    # Team
-    try:
-        team = sesh.query(Teams.NFL_Team)\
-                .filter(Teams.player_id == playerID)\
-                .one()[0]
-    except:
-        team = None
-
-    # JSON object outpu
-    output = {'playerID': playerID, 
-              'name': player,
-              'year':year,
-              'position': pos,
-              'height': height,
-              'weight': weight,
-              'school': school,
-              'draft_round': Round,
-              'pick_no':pick_no,
-              'team': team}
-
-
-    sesh.close()
-    return jsonify(output)
 
 # Get number of drafted players for each position
-# Optionally fliter by year
 @app.route('/positionTrend/<year>')
 def posTrend(year):
     sesh = Session()
@@ -178,31 +121,26 @@ def byYear():
     df.columns = newCols
     # setup output df
     years = list(df['year'].unique())
-    rounds = list(df['round'].unique())
+    #rounds = list(df['round'].unique())
     positions = list(df['position'].unique())
     out = {}
     for year in years:
-        out[str(year)] = {}
-        for r in rounds:
-            try:
-                out[str(year)]['round ' + str(int(r))] = [] 
-            except:
-                continue
+        out[str(year)] = []
+    
     # Populate stats
     statList = ['vertical', 'forty_yard','bench', 'broad_jump','three_cone','shuttle']
     for stat in statList:
         for year in years:
-            for r in rounds:
-                for pos in positions:
-                    frame = df[(df['year'] == year) & (df['round'] == r) & (df['position'] == pos)][stat].dropna()
-                    if frame.size == 0 or r == np.nan:
-                        continue
-                    out[str(year)]['round ' + str(int(r))].append({'Position': pos,
-                                         'Statistic': stat,
-                                         'Count': frame.size,
-                                         'Avg': frame.mean(),
-                                         'Min':frame.min(),
-                                         'Max':frame.max()})
+            for pos in positions:
+                frame = df[(df['year'] == year) & (df['position'] == pos)][stat].dropna()
+                if frame.size == 0:
+                    continue
+                out[str(year)].append({'Position': pos,
+                                     'Statistic': stat,
+                                     'Count': frame.size,
+                                     'Avg': frame.mean(),
+                                     'Min':frame.min(),
+                                     'Max':frame.max()})
     sesh.close()
     return jsonify(out)
 
