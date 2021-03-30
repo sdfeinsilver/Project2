@@ -7,6 +7,9 @@ a.navbar-brand{
     font-size: 25px;
 }
 
+.short {
+	height: 700px
+}
 /*footer styling*/
 .page-footer{
     background-color: rgb(92, 90, 90);

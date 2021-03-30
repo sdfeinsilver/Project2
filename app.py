@@ -133,6 +133,7 @@ def byYear():
         for year in years:
             for pos in positions:
                 frame = df[(df['year'] == year) & (df['position'] == pos)][stat].dropna()
+                print(frame)
                 if frame.size == 0:
                     continue
                 out[str(year)].append({'Position': pos,
@@ -141,6 +142,7 @@ def byYear():
                                      'Avg': frame.mean(),
                                      'Min':frame.min(),
                                      'Max':frame.max()})
+    
     sesh.close()
     return jsonify(out)
 
