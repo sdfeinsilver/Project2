@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NFL Dashboard</title>
+    <title>NFL Draft Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -19,7 +19,7 @@
     <!--Navbar adjustments-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand text-white" href="/" >NFL Dashboard</a>
+            <a class="navbar-brand text-white" href="/" >Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,6 +34,7 @@
                             <a class="dropdown-item" href="/frequency">Draft Position Frequency</a>
                             <a class="dropdown-item" href="/trend">Draft Position Trend</a>
                             <a class="dropdown-item" href="/combine">Combine</a>
+                            <a class="dropdown-item" href="/combinePosition">Combine by Position</a>
                         </div>
                     </li>
                 </ul>
@@ -46,20 +47,24 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h3>NFL Dashboard </h3>
+                    <h3>NFL Draft Dashboard </h3>
                     <hr>
                     <div class="thumbnail">
                         <img class="img-thumbnail float-center" src="../static/images/NFL.png " width="10%">
                     </div>
-                    <p> Have you ever wondered how the combine statistics influence the draft and how many players are drafted by position?  This application will allow you to view these statistics and understand how many players are drafted per year. </p> 
+                    <p> <b>Have you ever wondered why the NFL Draft is such a big deal?  Why millions of Americans drop what they are doing every April in anticipation of their favorite NFL teams hiting the jackpot?  If so, you have come to the right place!</b></p> 
                     
-                    <p> What do those 6 combine events mean? </p>
-                    <p> The Forty Yard Dash - the 40 yeard dash is a test of speed to see how fast the player can run.  The record was set in 2017 by WR John Ross at 4.22 seconds. </p>
-                    <p> Vertical - the vertical is the verical jump.  There are a series of flags set at various heights. The player must jump to see how high they can go.  Record set in 2005 by DB Gerald Sensabaugh 46".</p>
-                    <p> Bench Reps - players bench press a 225-pound barbell as many times as possible.  The record is 51 reps by DT Justin Ernest in 1999.</p>
-                    <p> 3Cone - the 3Cone drill evaluates the agility, quickness and fluidity of movement by the player. It is 30 yards total.</p>
-                    <p> Broad Jump - players jump as far as they can while landing in a balanced position.  Record was set in 2015 by CB Byron Jones at 12'3". </p>
-                    <p> Shuttle - the shuttle is a 20 yard run which has the player running back and forth between 2 lines, touching the lines.  This tests lateral speed and agility.  Record set in 2001 by WR Kevin Kasper at 3.73 seconds.</p>
+                    <p> <b>Each year, the NFL holds a draft in which teams get to hand select who they feel will be tomorrow's stars.  Hundreds of college football players have been preparing their entire lives to earn a job in the NFL.  However, their job interview is quite a bit different then the Average Joe's.  Enter the NFL Combine!</b></p> 
+                    <p> <b>The NFL Combine is a Pre-Draft event that takes place every year.  By invitation only, future prospects gather from all over the country to showcase their physical skills in different combine events and thus prove their readiness for the NFL game.</b></p>
+                    <h6><b><u>Combine Events:</u></b></h6>
+                    <ul>
+                        <li> <b> <u>Forty Yard Dash</u> - An all out sprint for 40 yards.  Laser timed to ensure 100% accuracy.  This event measures pure speed. (Record: John Ross, 4.22 Seconds) </b></li>
+                        <li> <b> <u>Vertical</u> - Jump as high as you can.  This event measures explosiveness.  (Record: Gerald Sensabaugh, 46")</b></li>
+                        <li> <b> <u>Bench Reps</u> - Bench a 225 lb barbell as many times as you can.  Shows a players strength.  (Record: Justin Ernest, 51 reps)</b></li>
+                        <li> <b> <u>Three Cone</u> - Run around a triangle in a specific pattern.  Evaluates the agility, quickness and fluidity of movement by the player. (Record: Jordan Thomas, 6.28 seconds) </b></li>
+                        <li> <b> <u>Broad Jump</u> - Jump as far as you can while landing in a balanced position.  (Record: Byron Jones, 12'3") </b></li>
+                        <li> <b> <u>Shuttle</u> - 20 yard change of direction sprint. Tests lateral speed and agility.  (Record: Kevin Kasper, 3.73 seconds)</b></li>
+                    </ul>
                 </div>
             </div>
             <!--visualization adjustments-->
@@ -77,6 +82,10 @@
         
                         <div class="col-3 col-md-6">
                             <a href="/combine"><img src="../static/images/NFLCombine.png" width="100%"  alt="Combine"></a><h5>Combine</h5>
+                        </div>
+                        <div class="col-3 col-md-6">
+                            <a href="/combinePosition"><img src="../static/images/NFLCombine.png" width="100%"  
+                            alt="Combine"></a><h5>Combine by Position</h5>
                         </div>
                     </div>
                 </div>

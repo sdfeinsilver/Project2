@@ -19,7 +19,7 @@
     <!--Navbar adjustments-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container content">
-            <a class="navbar-brand text-white" href="index.html">NFL Dashboard</a>
+            <a class="navbar-brand text-white" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,6 +34,7 @@
                             <a class="dropdown-item" href="/frequency">Draft Position Frequency</a>
                             <a class="dropdown-item" href="/trend">Draft Position Trend</a>
                             <a class="dropdown-item" href="/combine">Combine</a>
+                            <a class="dropdown-item" href="/combinePosition">Combine by Position</a>
                         </div>
                     </li>
                 </ul>
@@ -54,16 +55,111 @@
                     <div class="col-md-12">
                         <div id="bar"></div>
                     </div>
-
+                    <div class='row'></div>
                     <div class="row">
                         <div class="well">
                             <h5>Select Year</h5>
                             <select id="selDataset1" onchange="optionChanged(this.value)"></select>
                         </div>
-                        <div class="well">
-                            <h5>Select Round</h5>
-                            <select id="selDataset2" onchange="optionChanged(this.value)"></select>
-                        </div>
+                    <div class="col-md-10">
+          <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Positon Code</th>
+                  <th class="table-head">Position Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>TE</td>
+                    <td>Tight End</td>
+                </tr>
+                <tr>
+                    <td>K</td>
+                    <td>Kicker</td>
+                </tr>
+                <tr>
+                    <td>CB</td>
+                    <td>Cornerback</td>
+                </tr>
+                <tr>
+                    <td>OT</td>
+                    <td>Offensive Tackle</td>
+                </tr>
+                <tr>
+                    <td>QB</td>
+                    <td>Quarterback</td>
+                </tr>
+                <tr>
+                    <td>WR</td>
+                    <td>Wide Receiver</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>Safety</td>
+                </tr>
+                <tr>
+                    <td>DT</td>
+                    <td>Defensive Tackle</td>
+                </tr>
+                <tr>
+                    <td>DE</td>
+                    <td>Defensive End</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>Center</td>
+                </tr>
+                <tr>
+                    <td>OLB</td>
+                    <td>Outside Linebacker</td>
+                </tr>
+                <tr>
+                    <td>RB</td>
+                    <td>Running Back </td>
+                </tr>
+                <tr>
+                    <td>ILB</td>
+                    <td>Inside Linebacker</td>
+                </tr>
+                <tr>
+                    <td>P</td>
+                    <td>Punter</td>
+                </tr>
+                <tr>
+                    <td>OG</td>
+                    <td>Offensive Guard</td>
+                </tr>
+                <tr>
+                    <td>FB</td>
+                    <td>Fullback</td>
+                </tr>
+                <tr>
+                    <td>LS</td>
+                    <td>Long Snapper</td>
+                </tr>
+                <tr>
+                    <td>EDGE</td>
+                    <td>Edge Rusher</td>
+                </tr>
+                <tr>
+                    <td>LB</td>
+                    <td>Linebackers</td>
+                </tr>
+                <tr>
+                    <td>OL</td>
+                    <td>Offensive Linemen</td>
+                </tr>
+                <tr>
+                    <td>DL</td>
+                    <td>Defensive Linemen</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>    
                     </div>
                     <br>
  
@@ -92,6 +188,10 @@
         
                         <div class="col-3 col-md-6">
                             <a href="/combine"><img src="../static/images/NFLCombine.png" width="100%"  alt="Combine"></a><h5>Combine</h5>
+                        </div>
+                        <div class="col-3 col-md-6">
+                            <a href="/combinePosition"><img src="../static/images/NFLCombine.png" width="100%"  
+                            alt="Combine"></a><h5>Combine by Position</h5>
                         </div>
                     </div>
                 </div>
