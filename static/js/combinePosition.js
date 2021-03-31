@@ -4,11 +4,14 @@ positions.forEach(position => {
     dropdown1.append("option").text(position)
 });
 
-var years = [2016, 2017, 2018, 2019, 2020]
-years.forEach(year => {
-    var dropdown1 = d3.select("#selDatasetYears");
-    dropdown1.append("option").text(year)
-});
+d3.json('/stats/').then(function (json) {
+    let years = Object.keys(json)
+    // console.log(years)
+    years.forEach(year => {
+        var dropdown1 = d3.select("#selDatasetYears");
+        dropdown1.append("option").text(year)
+    })
+});  //[2016, 2017, 2018, 2019, 2020]
 
 d3.select('#selDatasetYears').on('change', function () {
     let year = this.value;
@@ -25,19 +28,127 @@ d3.select('#selDataset1').on('change', function () {
 function buildChart(year, position) {
     chartHTML = d3.select("#chart")
     chartHTML.html("")
-    d3.json('/stats/').then(function (data) {
+    d3.json('/stats/').then(function (json) {
+        
+        let verticalRef = 0.0
+        let fyRef = 100.0
+        let bRef = 0.0
+        let bjRef = 0.0
+        let tcRef = 100.0
+        let sRef = 100.0
+        // console.log(Object.entries(json))
+        let dataData = Object.entries(json)
+        dataData.forEach(key => {
+            // console.log(key)
+            keyFilter = key[1]
+            keyFilter.forEach(value=>{
+                
+                // console.log(value)
+                if (value.Position === position) {
+                    // console.log(value.Statistic)
+                    // console.log(value.Max)
+                    // console.log(value.Min)
+                    if (value.Statistic === 'vertical'){
+                        if (value.Max > verticalRef ){
+                            verticalRef = value.Max
+                        } 
+                    }
+                    else if (value.Statistic === 'forty_yard'){
+                        if (value.Min < fyRef ){
+                            fyRef = value.Min // && fy !==0
+                        } 
+                    }
+                    else if (value.Statistic === 'bench'){
+                        if (value.Max > bRef ){
+                            bRef = value.Max // && fy !==0
+                        } 
+                    }
+                    else if (value.Statistic === 'broad_jump'){
+                        if (value.Max > bjRef ){
+                            bjRef = value.Max // && fy !==0
+                        } 
+                    }
+                    else if (value.Statistic === 'three_cone'){
+                        if (value.Min < tcRef ){
+                            tcRef = value.Min // && fy !==0
+                        } 
+                    }
+                    else if (value.Statistic === 'shuttle'){
+                        if (value.Min < sRef ){
+                            sRef = value.Min // && fy !==0
+                        } 
+                    }
+                    // console.log(verticalRef)
+                    console.log(sRef)
+                }
+            })
+        })
+        
+
         let filteredData = []
-        let yearData = data[year]
+        let yearData = json[year]
         // let scale = {} if (date) { filteredData = filteredData.filter(row => row.datetime === date); }
         yearData.forEach(positionEntry => {
             if( (positionEntry.Position === position)&& (positionEntry.Statistic !== "broad_jump")) {
-                filteredData.push({
-                    "x": positionEntry.Statistic,
-                    "value": positionEntry.Avg
-                })
+                if (positionEntry.Statistic === 'vertical'){
+                    let v = (positionEntry.Avg*100/verticalRef)
+                    console.log(v)
+                    filteredData.push({
+                        "x": positionEntry.Statistic,
+                        "value": v
+                    })
+
+                }
+                else if (positionEntry.Statistic === 'forty_yard'){
+                    let v2 = (fyRef*100/positionEntry.Avg)
+                    console.log(v2)
+                    filteredData.push({
+                        "x": positionEntry.Statistic,
+                        "value": v2
+                    })
+                }
+                else if (positionEntry.Statistic === 'bench'){
+                    let v = (positionEntry.Avg*100/bRef)
+                    console.log(v)
+                    filteredData.push({
+                        "x": positionEntry.Statistic,
+                        "value": v
+                    })
+
+                }
+                else if (positionEntry.Statistic === 'broad_jump'){
+                    let v = (positionEntry.Avg*100/bjRef)
+                    console.log(v)
+                    filteredData.push({
+                        "x": positionEntry.Statistic,
+                        "value": v
+                    })
+
+                }
+                else if (positionEntry.Statistic === 'three_cone'){
+                    let v2 = (tcRef*100/positionEntry.Avg)
+                    console.log(v2)
+                    filteredData.push({
+                        "x": positionEntry.Statistic,
+                        "value": v2
+                    })
+                }
+                else if (positionEntry.Statistic === 'shuttle'){
+                    let v2 = (sRef*100/positionEntry.Avg)
+                    console.log(v2)
+                    filteredData.push({
+                        "x": positionEntry.Statistic,
+                        "value": v2
+                    })
+                }
+
+                // filteredData.push({
+                //     "x": positionEntry.Statistic,
+                //     "value": value
+                // })
             }
         })
-        console.log(filteredData)
+        // console.log(filteredData)
         // Object.entries(yearData).forEach(([key, value]) => {
         //     console.log(key, value)
         // })
