@@ -89,7 +89,7 @@ function buildChart(year, position) {
         let yearData = json[year]
         // let scale = {} if (date) { filteredData = filteredData.filter(row => row.datetime === date); }
         yearData.forEach(positionEntry => {
-            if( (positionEntry.Position === position)&& (positionEntry.Statistic !== "broad_jump")) {
+            if (positionEntry.Position === position) {
                 if (positionEntry.Statistic === 'vertical'){
                     let v = (positionEntry.Avg*100/verticalRef)
                     console.log(v)
