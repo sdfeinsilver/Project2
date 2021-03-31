@@ -166,6 +166,16 @@ function buildChart(year, position) {
             // set the chart title
             chart.title(`Position: ${position}
                 Combine Events mark for the year ${year}`);
+            
+            // create a logarithmic scale
+            var logScale = anychart.scales.log();
+
+            // set the minimum and maximum values of the scale
+            logScale.minimum(50);
+            logScale.maximum(100);
+
+            // set the logarithmic scale as the y-scale
+            chart.yScale(logScale);
         
             // set the container id
             chart.container("chart");
